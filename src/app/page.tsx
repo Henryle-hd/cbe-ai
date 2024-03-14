@@ -1,8 +1,8 @@
 export default function Home() {
   return (
     <main>
-      <div></div>
-      <div></div>
+      <h1>passion testing!!!</h1>
     </main>
   );
 }
+
