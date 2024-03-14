@@ -1,4 +1,4 @@
-# CBE AI
+# CBE AI🤖
 
 ![cbe image here!](/src/app/assets/cbe%20logo.png)
 
