@@ -42,4 +42,10 @@ This repository holds the source code for a web application that utilizes an AI-
 - Pull requests are welcome for bug fixes and improvements.
 - Please adhere to coding style conventions and best practices.
 
+**Colaboration Tools 💪 **
+
+- [eraser team](<(https://app.eraser.io/invite/JSrJtOwLv6NiBrKrqJxC)>)
+- Github `https://github.com/Henryle-hd/cbe-ai.git `
+- [Google docs ](https://docs.google.com/document/d/1I8SoKJOiKG5O22uO8QVXRUYloQCNViVCkBSUMb4_N3g/edit?usp=sharing)
+
 <!-- **License:**-->
