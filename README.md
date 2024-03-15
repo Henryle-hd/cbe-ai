@@ -44,7 +44,7 @@ This repository holds the source code for a web application that utilizes an AI-
 
 **Colaboration Tools 💪 **
 
-- [eraser team](<(https://app.eraser.io/invite/JSrJtOwLv6NiBrKrqJxC)>)
+- [eraser team](https://app.eraser.io/invite/JSrJtOwLv6NiBrKrqJxC)
 - Github `https://github.com/Henryle-hd/cbe-ai.git `
 - [Google docs ](https://docs.google.com/document/d/1I8SoKJOiKG5O22uO8QVXRUYloQCNViVCkBSUMb4_N3g/edit?usp=sharing)
 
