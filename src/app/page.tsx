@@ -1,8 +1,7 @@
 export default function Home() {
   return (
     <main>
-      <div></div>
-      <div></div>
+      <h2 className="text-center text-5xl text-blue-400">cbe-ai</h2>
     </main>
   );
 }
