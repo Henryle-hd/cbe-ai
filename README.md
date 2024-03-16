@@ -47,5 +47,6 @@ This repository holds the source code for a web application that utilizes an AI-
 - [eraser team](https://app.eraser.io/invite/JSrJtOwLv6NiBrKrqJxC)
 - Github `https://github.com/Henryle-hd/cbe-ai.git`
 - [Google docs ](https://docs.google.com/document/d/1I8SoKJOiKG5O22uO8QVXRUYloQCNViVCkBSUMb4_N3g/edit?usp=sharing)
+- [Notion](https://www.notion.so/8a0d897409294901ab8cdef5b88b25ad?v=ecdd879be18143d6ac307dc797a6a9d6&pvs=4)
 
 <!-- **License:**-->
