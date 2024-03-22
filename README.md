@@ -22,10 +22,15 @@ This repository holds the source code for a web application that utilizes an AI-
 - Search: Pinecone, Prisma
 - UI Framework: Shadcfn UI (or similar)
 
-**Current Status: 🚀**
+**Previous Status: 🔙**
 
 - Initial development phase.
 - Data collection and preprocessing ongoing.
+
+  **Current Status: 🚀**
+
+- Design User Interface
+- Plan Architecture and Technologies
 
 **Development Approach: 🤖**
 
