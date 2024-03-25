@@ -27,10 +27,10 @@ This repository holds the source code for a web application that utilizes an AI-
 - Initial development phase.
 - Data collection and preprocessing ongoing.
 
-  **Current Status: 🚀**
+**Current Status: 🚀**
 
 - Design User Interface
-- Plan Architecture and Technologies
+- Developing UI
 
 **Development Approach: 🤖**
 
