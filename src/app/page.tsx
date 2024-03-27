@@ -1,9 +1,13 @@
-import { Button } from "@/components/ui/button";
+import AsideComponent from "@/components/aside";
+import React from "react";
 
-export default function Home() {
+export default function Aichat() {
   return (
-    <main>
-      <h2 className="text-center text-5xl text-blue-400">cbe-ai</h2>
+    <main className="flex gap-2 text-white">
+      <AsideComponent />
+      <div className="">
+        <p>Lading page 🌆</p>
+      </div>
     </main>
   );
 }
