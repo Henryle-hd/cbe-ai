@@ -3,12 +3,18 @@
 import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Input } from "./ui/input";
-import { Delete, DeleteIcon, Moon, Trash, Truck } from "lucide-react";
+import { Delete, DeleteIcon, Moon, Sun, Trash, Truck } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 import { Separator } from "./ui/separator";
 import Link from "next/link";
 import TypeWriterTitle from "./typewriter";
+import { useTheme } from "next-themes"
+import { Button } from "./ui/button";
 function AsideComponent() {
+  const { theme, setTheme } = useTheme();
+
+
+
   return (
     <>
       <Card className="sticky left-0 top-0 flex min-h-screen w-80 flex-col  justify-start gap-4 rounded-xl rounded-bl-none rounded-tl-none px-1">
@@ -83,13 +89,21 @@ function AsideComponent() {
           </Link>
           {/* //dark mode */}
 
-          <Link href={"/"}>
+          {/* <Link href={"/"}>
             <span className="flex items-center justify-start gap-2">
               {" "}
               <Moon />
               Change themes
             </span>
-          </Link>
+          </Link> */}
+          <Button
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            variant="outline"
+            color="cbeaiclr-1"
+            className="flex items-center justify-start gap-2"
+          >
+            {theme === "dark" ? <Sun /> : <Moon />} Change theme
+          </Button>
         </CardContent>
       </Card>
     </>
