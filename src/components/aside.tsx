@@ -6,6 +6,7 @@ import { Input } from "./ui/input";
 import { Delete, DeleteIcon, Moon, Trash, Truck } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 import { Separator } from "./ui/separator";
+import Link from "next/link";
 function AsideComponent() {
   return (
     <>
@@ -69,18 +70,22 @@ function AsideComponent() {
           </div>
           <Separator />
           {/* // delete conversation */}
-
-          <span className="flex items-center justify-start gap-2">
-            {" "}
-            <Trash />
-            Delete conversation
-          </span>
+          <Link href={"/"}>
+            <span className="flex items-center justify-start gap-2">
+              {" "}
+              <Trash />
+              Delete conversation
+            </span>
+          </Link>
           {/* //dark mode */}
-          <span className="flex items-center justify-start gap-2">
-            {" "}
-            <Moon />
-            Change themes
-          </span>
+
+          <Link href={"/"}>
+            <span className="flex items-center justify-start gap-2">
+              {" "}
+              <Moon />
+              Change themes
+            </span>
+          </Link>
         </CardContent>
       </Card>
     </>
