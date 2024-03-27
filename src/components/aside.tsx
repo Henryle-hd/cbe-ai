@@ -3,7 +3,7 @@
 import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Input } from "./ui/input";
-import { Link2, Moon, Sun, Trash } from "lucide-react";
+import { ArrowUpRight, Link2, Moon, Sun, Trash } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 import { Separator } from "./ui/separator";
 import Link from "next/link";
@@ -32,9 +32,8 @@ const otherLinks = [
 ];
 
 function AsideComponent() {
-
   return (
-    <Card className="sticky left-0 top-0 flex min-h-screen w-full flex-col  justify-start gap-4 rounded-l-none rounded-r-xl px-1">
+    <Card className="sticky left-0 top-0 flex min-h-screen w-full flex-col  justify-start gap-2 rounded-l-none rounded-r-xl px-1">
       <CardContent className="flex flex-col justify-start gap-4">
         {/* // cbe logo */}
         <div className="relative left-2 top-0 my-3 flex items-center justify-start gap-3">
@@ -60,7 +59,7 @@ function AsideComponent() {
         />
 
         {/* // container */}
-        <ScrollArea className="h-60 w-full rounded-md border">
+        <ScrollArea className="h-52 w-full rounded-md border">
           <div className="p-2">
             {tags.map((tag) => (
               <Button
@@ -75,9 +74,15 @@ function AsideComponent() {
             ))}
           </div>
         </ScrollArea>
+        <Link
+          href={"/"}
+          className="flex items-center justify-center gap-2 text-[9px] text-gray-800"
+        >
+          view more prompt <ArrowUpRight size={9} />
+        </Link>
 
-        <div className="mt-4 flex flex-col justify-start gap-2">
-          <h1 className="text-xl font-bold">other links</h1>
+        <div className="mt-1 flex flex-col justify-start gap-2">
+          <h1 className="text-l font-bold ">Other links</h1>
           <div>
             {otherLinks.map((link) => (
               <Link
@@ -85,7 +90,7 @@ function AsideComponent() {
                 href={link.link}
                 className="flex items-center justify-start gap-2 text-sm text-cbeaiclr-1"
               >
-                <Link2 />
+                <ArrowUpRight size={16} />
                 {link.title}
               </Link>
             ))}
