@@ -17,7 +17,7 @@ function AsideComponent() {
 
   return (
     <>
-      <Card className="sticky left-0 top-0 flex min-h-screen w-80 flex-col  justify-start gap-4 rounded-xl rounded-bl-none rounded-tl-none px-1">
+      <Card className="sticky left-0 top-0 flex min-h-screen w-full flex-col  justify-start gap-4 rounded-r-xl rounded-l-none px-1">
         <CardContent className="flex flex-col justify-start gap-4">
           {/* // cbe logo */}
           <div className="relative left-2 top-0 my-3 flex items-center justify-start gap-3">
@@ -80,13 +80,12 @@ function AsideComponent() {
           </div>
           <Separator />
           {/* // delete conversation */}
-          <Link href={"/"}>
-            <span className="flex items-center justify-start gap-2">
-              {" "}
-              <Trash />
-              Delete conversation
-            </span>
-          </Link>
+          <Button
+            variant={"destructive"}
+            className="flex items-center justify-start gap-2">
+            <Trash />
+            Delete conversation
+          </Button>
           {/* //dark mode */}
 
           {/* <Link href={"/"}>
