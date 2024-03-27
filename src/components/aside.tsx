@@ -68,19 +68,18 @@ function AsideComponent() {
           {/* // container */}
           <ScrollArea className="h-60 w-full rounded-md border">
             <div className="p-2">
-              {tags.map((tag) => (
-                <>
-                  <Button
-                    key={tag}
-                    variant="outline"
-                    size={"lg"}
-                    className="text-sm w-full mb-2"
-                    onClick={() => console.log("clicked")}
-                  >
-                    {tag}
-                  </Button>
-                </>
+              {tags.map((tag, index) => (
+                <Button
+                  key={index}
+                  variant="outline"
+                  size={"lg"}
+                  className="text-sm w-full mb-2"
+                  onClick={() => console.log("clicked")}
+                >
+                  {tag}
+                </Button>
               ))}
+
             </div>
           </ScrollArea>
 
