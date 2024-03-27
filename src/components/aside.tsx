@@ -5,7 +5,7 @@ import { Input } from "./ui/input";
 function AsideComponent() {
   return (
     <>
-      <div className="sticky left-0 top-0 flex min-h-screen w-80 flex-col  justify-start gap-4 rounded-lg rounded-bl-none rounded-tl-none bg-cbeaiclr-5 px-2 text-gray-900">
+      <div className="sticky left-0 top-0 flex min-h-screen w-80 flex-col  justify-start gap-4 rounded-xl rounded-bl-none rounded-tl-none bg-cbeaiclr-5 px-2 text-gray-900">
         {/* // cbe logo */}
         <div className="relative left-2 top-0 my-3 flex items-center justify-start gap-3">
           <Avatar className="p-1">
