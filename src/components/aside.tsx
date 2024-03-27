@@ -7,6 +7,7 @@ import { Delete, DeleteIcon, Moon, Trash, Truck } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 import { Separator } from "./ui/separator";
 import Link from "next/link";
+import TypeWriterTitle from "./typewriter";
 function AsideComponent() {
   return (
     <>
@@ -24,7 +25,10 @@ function AsideComponent() {
               </AvatarFallback>
             </Avatar>
 
-            <h2 className="text-xl font-bold text-cbeaiclr-1"> CBE AI</h2>
+            <h2 className="text-xl font-bold text-cbeaiclr-1">
+              {" "}
+              <TypeWriterTitle />
+            </h2>
           </div>
 
           {/* // search prompt */}
@@ -35,7 +39,7 @@ function AsideComponent() {
 
           {/* // container */}
           <div className=" max-h-96 min-h-96 w-full overflow-scroll rounded-lg border bg-white text-center text-cbeaiclr-4 shadow-md">
-            <ul className="gap grid grid-cols-1">
+            <ul className="gap grid grid-cols-1 scroll-smooth">
               <li className=" mx-5  mt-2 rounded-lg bg-cbeaiclr-5 p-4 shadow-sm">
                 List branchs of CBE and courses they offer
               </li>
