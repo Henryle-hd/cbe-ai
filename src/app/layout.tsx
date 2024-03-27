@@ -23,7 +23,7 @@ export default function RootLayout({
       <body className={cn(inter.className, 'grid grid-cols-12 gap-2')}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
