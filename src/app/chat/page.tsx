@@ -25,15 +25,15 @@ const chatMessages = [
 
 export default function Aichat() {
   return (
-    <main className="flex flex-col h-screen px-10 relative">
-      <ScrollArea className="h-full p-10">
+    <main className="flex flex-col h-screen sm:px-2 md:px-4 lg:px-10 relative">
+      <ScrollArea className="h-full p-2 md:p-4 lgp-10">
         {chatMessages.map((message, index) => (
-          <div key={index} className="flex items-start gap-4 mb-4">
+          <div key={index} className="flex items-start gap-2 md:gap-4 mb-4">
             {message.from === "user" ? (
               <div className="flex items-start gap-4 mb-4 w-full">
                 <Card className="flex items-center justify-end w-full">
-                  <CardContent>
-                    <p>{message.message}</p>
+                  <CardContent className="p-2 md:p-4 lg:p-4">
+                    <p className="sm:text-sm md:text-lg lg:text-lg">{message.message}</p>
                   </CardContent>
                 </Card>
 
@@ -43,15 +43,15 @@ export default function Aichat() {
                 </Avatar>
               </div>
             ) : (
-              <div className="flex items-start gap-4 mb-4">
+              <div className="flex items-start gap-2 md:gap-4 mb-4">
                 <Avatar>
-                    <AvatarImage src="https://cosis.cbe.ac.tz//assets/themes/logo.png" alt="cbe" />
+                  <AvatarImage src="https://cosis.cbe.ac.tz//assets/themes/logo.png" alt="cbe" />
                   <AvatarFallback>AI</AvatarFallback>
                 </Avatar>
 
                 <Card className="flex items-start justify-start w-full mb-4">
-                  <CardContent>
-                    <p>{message.message}</p>
+                  <CardContent className="p-2 md:p-4 lg:p-4">
+                    <p className="sm:text-sm md:text-lg lg:text-lg">{message.message}</p>
                   </CardContent>
                 </Card>
               </div>
