@@ -1,11 +1,9 @@
+"use client";
+
 import ChatInput from "@/components/Chat-input";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
-export const metadata = {
-  title: "Chat 🚀",
-};
 
 const chatMessages = [
   {
