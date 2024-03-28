@@ -8,14 +8,14 @@ import { Form } from "./ui/form";
 const ChatInput = () => {
   return (
     <Form>
-      <div className="flex items-center justify-start bg-white shadow-md">
+      <div className="flex h-14 items-center justify-center rounded-md border bg-background p-1 shadow-md">
         <Input
-          className="w-full rounded-xl rounded-r-none "
+          className="h-full w-full border-none bg-transparent focus-visible:ring-0"
           placeholder="Type a message..."
           type="text"
         />
         <Button
-          className="rounded-xl rounded-l-none bg-cbeaiclr-1"
+          className="rounded-md rounded-l-none bg-cbeaiclr-1"
           size={"icon"}
           type="submit"
           aria-label="Send Message"
