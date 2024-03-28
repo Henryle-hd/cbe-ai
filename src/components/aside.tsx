@@ -99,16 +99,19 @@ function AsideComponent() {
 
         <Separator />
         {/* // delete conversation */}
-        <Button
-          variant={"destructive"}
-          className="flex items-center justify-start gap-2"
-        >
-          <Trash />
-          Delete conversation
-        </Button>
-        {/* //dark mode */}
+        <div className="flex flex-col items-start justify-start gap-2">
+          <div className="flex  items-center justify-start gap-2">
+            <Button variant={"destructive"} size={"icon"}>
+              <Trash />
+            </Button>
+            <span>Detele Conversion</span>
+          </div>
+          {/* //dark mode */}
 
-        <ThemeToggle />
+          <div className="flex  items-center justify-start gap-2">
+            <ThemeToggle /> <span>change mode</span>
+          </div>
+        </div>
       </CardContent>
     </Card>
   );

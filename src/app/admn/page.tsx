@@ -4,6 +4,9 @@ import AddCategory from "@/components/addCategory";
 import { Plus } from "lucide-react";
 import React, { useState } from "react";
 
+export const metadata = {
+  title: "Admin 👨‍💻",
+};
 export default function AdminPage() {
   const [showDialog, setShowDialog] = useState(false);
   return (
