@@ -18,8 +18,9 @@ export const ThemeToggle = () => {
     <Button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       variant="outline"
+      size={"icon"}
       color="cbeaiclr-1"
-      className="flex items-center justify-start gap-2"
+      className="flex items-center justify-center gap-2"
       suppressHydrationWarning={true}
     >
       {icon}
