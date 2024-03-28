@@ -39,14 +39,14 @@ export default function Aichat() {
 
                 <Avatar>
                   <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-                  <AvatarFallback>CN</AvatarFallback>
+                  <AvatarFallback>USER</AvatarFallback>
                 </Avatar>
               </div>
             ) : (
               <div className="flex items-start gap-4 mb-4">
                 <Avatar>
-                  <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-                  <AvatarFallback>CN</AvatarFallback>
+                    <AvatarImage src="https://cosis.cbe.ac.tz//assets/themes/logo.png" alt="cbe" />
+                  <AvatarFallback>AI</AvatarFallback>
                 </Avatar>
 
                 <Card className="flex items-start justify-start w-full mb-4">
