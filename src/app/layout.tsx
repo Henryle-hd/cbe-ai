@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import { cn } from "@/lib/utils";
 import AsideComponent from "@/components/aside";
+import SmallScreen from "@/components/menu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,9 +28,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <div className="col-start-1 col-end-13 block md:hidden">
+            <SmallScreen />
+          </div>
           <div className="col-start-1 col-end-5  hidden  md:block lg:col-end-4">
             <AsideComponent />
           </div>
+
           <div className="col-start-1 col-end-13 md:col-start-5 lg:col-start-4">
             {children}
           </div>

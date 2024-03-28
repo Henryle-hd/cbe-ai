@@ -40,6 +40,7 @@ export default function Home() {
       />
 
       {/* input prompt  */}
+      {/* <div className="h-10 w-[70%] border"></div> */}
       <ChatInput />
 
       {/* features objectives  */}
