@@ -1,19 +1,21 @@
 "use client";
 
 import ChatInput from "@/components/Chat-input";
-import { Bot } from "lucide-react";
-import { useTheme } from "next-themes";
+import { BirdIcon, Bot, Newspaper, Rabbit } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 import CurvedArrow from "@/app/assets/curveArrow.png";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 export default function Home() {
-  // let botColor = "#000";
-  // const { theme } = useTheme();
-  // theme === "dark" ? (botColor = "#fff") : (botColor = "#000");
-
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-5">
+    <main className="mt-10 flex min-h-screen flex-col items-center justify-center gap-5">
       {/* Bot icon  */}
       <Bot size={150} className="dark:text-cbeaiclr-5" strokeWidth={0.5} />
 
@@ -40,10 +42,61 @@ export default function Home() {
       />
 
       {/* input prompt  */}
-      {/* <div className="h-10 w-[70%] border"></div> */}
-      <ChatInput />
+      <div className="h-10 w-[70%] ">
+        <ChatInput />
+      </div>
 
       {/* features objectives  */}
+      <div className="my-10 flex flex-col items-center justify-center gap-4">
+        <h1>Key Features</h1>
+
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:px-5 lg:grid-cols-3 lg:px-10">
+          {/* Card 01 */}
+          <Card className="shadow">
+            <CardContent className="flex flex-col items-center justify-center text-center">
+              <CardHeader>
+                <div className="flex h-20 w-20 items-center justify-center rounded-full border">
+                  <BirdIcon size={50} strokeWidth={0.5} />
+                </div>
+                <CardTitle>Mission</CardTitle>
+              </CardHeader>
+              <CardDescription>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </CardDescription>
+            </CardContent>
+          </Card>
+
+          {/* Card 02 */}
+          <Card className="shadow">
+            <CardContent className="flex flex-col items-center justify-center text-center">
+              <CardHeader>
+                <div className="flex h-20 w-20 items-center justify-center rounded-full border ">
+                  <Newspaper size={50} strokeWidth={0.5} />
+                </div>
+                <CardTitle>Vision</CardTitle>
+              </CardHeader>
+              <CardDescription>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </CardDescription>
+            </CardContent>
+          </Card>
+
+          {/* Card 03 */}
+          <Card className="shadow">
+            <CardContent className="flex flex-col items-center justify-center text-center">
+              <CardHeader>
+                <div className="flex h-20 w-20 items-center justify-center rounded-full border">
+                  <Rabbit size={50} strokeWidth={0.5} />
+                </div>
+                <CardTitle>Tips</CardTitle>
+              </CardHeader>
+              <CardDescription>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </CardDescription>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
     </main>
   );
 }
