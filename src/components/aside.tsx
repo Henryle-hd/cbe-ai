@@ -33,7 +33,7 @@ const otherLinks = [
 
 function AsideComponent() {
   return (
-    <Card className="sticky left-0 top-0 flex min-h-screen w-full flex-col  justify-start gap-2 rounded-l-none rounded-r-xl px-1">
+    <Card className="sticky left-0 top-0 flex min-h-screen w-full  flex-col justify-start gap-2 rounded-l-none rounded-r-xl px-1">
       <CardContent className="flex flex-col justify-start gap-4">
         {/* // cbe logo */}
         <div className="relative left-2 top-0 my-3 flex items-center justify-start gap-3">
