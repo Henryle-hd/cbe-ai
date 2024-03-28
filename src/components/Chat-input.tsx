@@ -15,7 +15,7 @@ const ChatInput = () => {
           type="text"
         />
         <Button
-          className="rounded-md rounded-l-none bg-cbeaiclr-1"
+          className="h-full rounded-md rounded-l-none bg-cbeaiclr-1"
           size={"icon"}
           type="submit"
           aria-label="Send Message"
