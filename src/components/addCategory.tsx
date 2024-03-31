@@ -1,5 +1,4 @@
-import { DialogTitle } from "@radix-ui/react-dialog";
-import { Dialog, DialogContent, DialogFooter, DialogHeader } from "./ui/dialog";
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "./ui/dialog";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 
