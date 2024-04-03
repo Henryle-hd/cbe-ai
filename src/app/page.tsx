@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/card";
 
 export default function Home() {
+  const features = [{}];
   return (
     <main className="mt-10 flex min-h-screen flex-col items-center justify-center gap-5">
       {/* Bot icon  */}
@@ -52,7 +53,7 @@ export default function Home() {
 
         <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:px-5 lg:grid-cols-3 lg:px-10">
           {/* Card 01 */}
-          <Card className="shadow">
+          <Card className="bg-[#f0f0f0] shadow dark:bg-background">
             <CardContent className="flex flex-col items-center justify-center text-center">
               <CardHeader>
                 <div className="flex h-20 w-20 items-center justify-center rounded-full border">
@@ -67,7 +68,7 @@ export default function Home() {
           </Card>
 
           {/* Card 02 */}
-          <Card className="shadow">
+          <Card className="bg-[#f0f0f0] shadow dark:bg-background">
             <CardContent className="flex flex-col items-center justify-center text-center">
               <CardHeader>
                 <div className="flex h-20 w-20 items-center justify-center rounded-full border ">
@@ -82,7 +83,7 @@ export default function Home() {
           </Card>
 
           {/* Card 03 */}
-          <Card className="shadow">
+          <Card className="bg-[#f0f0f0] shadow dark:bg-background">
             <CardContent className="flex flex-col items-center justify-center text-center">
               <CardHeader>
                 <div className="flex h-20 w-20 items-center justify-center rounded-full border">
