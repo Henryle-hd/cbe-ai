@@ -19,7 +19,7 @@ export default function AddCategory({ open, setOpen }: addCategoryProps) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent
-        className=""
+        className="h-screen sm:h-auto"
         onInteractOutside={(e) => {
           e.preventDefault();
         }}
