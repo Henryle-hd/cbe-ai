@@ -20,7 +20,7 @@ export const ThemeToggle = () => {
       variant="outline"
       size={"icon"}
       color="cbeaiclr-1"
-      className="flex items-center justify-center gap-2"
+      className="flex items-center justify-center gap-2 rounded-full"
       suppressHydrationWarning={true}
     >
       {icon}

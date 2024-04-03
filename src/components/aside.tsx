@@ -19,21 +19,21 @@ const tags = Array.from({ length: 50 }).map(
 const otherLinks = [
   {
     title: "CBE website",
-    link: "/",
+    link: "https://www.cbe.ac.tz/",
   },
   {
     title: "Cosis",
-    link: "/",
+    link: "https://cosis.cbe.ac.tz/",
   },
   {
-    title: "CBE library",
-    link: "/",
+    title: "E-Learning",
+    link: "http://lms.cbe.ac.tz/login/index.php",
   },
 ];
 
 function AsideComponent() {
   return (
-    <Card className="sticky left-0 top-0 flex min-h-screen w-full  flex-col justify-start gap-2 rounded-l-none rounded-r-xl px-1">
+    <Card className="sticky left-0 top-0 flex min-h-screen w-full  flex-col justify-start gap-2 rounded-l-none rounded-r-xl bg-[#f0f0f0] px-1 dark:bg-background">
       <CardContent className="flex flex-col justify-start gap-4">
         {/* // cbe logo */}
         <div className="relative left-2 top-0 my-3 flex items-center justify-start gap-3">
@@ -82,13 +82,13 @@ function AsideComponent() {
         </Link>
 
         <div className="mt-1 flex flex-col justify-start gap-2">
-          <h1 className="text-l font-bold ">Other links</h1>
+          <h1 className="text-sm font-thin ">Quick Links</h1>
           <div>
             {otherLinks.map((link) => (
               <Link
                 key={link.title}
                 href={link.link}
-                className="flex items-center justify-start gap-2 text-sm text-cbeaiclr-1"
+                className="flex items-center justify-start gap-2 text-sm text-gray-400"
               >
                 <ArrowUpRight size={16} />
                 {link.title}
@@ -101,10 +101,10 @@ function AsideComponent() {
         {/* // delete conversation */}
         <div className="flex flex-col items-start justify-start gap-2">
           <div className="flex  items-center justify-start gap-2">
-            <Button variant={"destructive"} size={"icon"}>
+            <Button variant={"outline"} size={"icon"} className="rounded-full">
               <Trash />
             </Button>
-            <span>Detele Conversion</span>
+            <span>Clear Conversion</span>
           </div>
           {/* //dark mode */}
 
