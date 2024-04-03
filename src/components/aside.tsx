@@ -59,7 +59,7 @@ function AsideComponent() {
         />
 
         {/* // container */}
-        <ScrollArea className="h-52 w-full rounded-md border">
+        <ScrollArea className="h-64 w-full rounded-md border bg-slate-100 dark:bg-background">
           <div className="p-2">
             {tags.map((tag) => (
               <Button
@@ -99,16 +99,20 @@ function AsideComponent() {
 
         <Separator />
         {/* // delete conversation */}
-        <div className="flex flex-col items-start justify-start gap-2">
+        <div className="flex flex-col items-start justify-start gap-2 text-[12px]">
           <div className="flex  items-center justify-start gap-2">
-            <Button variant={"outline"} size={"icon"} className="rounded-full">
+            <Button
+              variant={"outline"}
+              size={"icon"}
+              className="h-8 w-8 rounded-full p-1"
+            >
               <Trash />
             </Button>
             <span>Clear Conversion</span>
           </div>
           {/* //dark mode */}
 
-          <div className="flex  items-center justify-start gap-2">
+          <div className="flex  items-center justify-start gap-2 ">
             <ThemeToggle /> <span>change mode</span>
           </div>
         </div>
