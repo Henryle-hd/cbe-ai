@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/command";
 import { Separator } from "@/components/ui/separator";
 import { Backpack, Copy } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 export default function PromptPage() {
@@ -39,9 +40,11 @@ export default function PromptPage() {
     // </div>
     <div className="flex items-center justify-center pt-5">
       <div className=" flex w-[80%] flex-col items-start justify-center gap-4 rounded-lg border p-2 sm:w-[80%] ">
-        <Button>
-          <Backpack />
-          Back
+        <Button asChild>
+          <Link href={"/chat"}>
+            <Backpack />
+            Back
+          </Link>
         </Button>
         <Separator />
 
