@@ -14,7 +14,7 @@ export default function AdminPage() {
     ))} */}
 
         <div
-          className="hover:hadow-md mx-5 flex h-32 flex-col items-center justify-center gap-2 rounded-md border-2 shadow hover:text-cbeaiclr-1 sm:mt-5"
+          className="mx-5 mt-16 flex h-32 flex-col items-center justify-center gap-2 rounded-md  border-2 shadow-md hover:text-cbeaiclr-1  hover:shadow-lg sm:mt-5"
           onClick={() => setShowDialog(true)}
         >
           <Plus />
@@ -22,7 +22,9 @@ export default function AdminPage() {
         </div>
       </div>
 
-      <AddCategory open={showDialog} setOpen={setShowDialog} />
+      <div className="flex flex-col items-center justify-center ">
+        <AddCategory open={showDialog} setOpen={setShowDialog} />
+      </div>
     </>
   );
 }
