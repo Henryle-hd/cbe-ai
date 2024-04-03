@@ -1,7 +1,7 @@
 "use client";
 
 import ChatInput from "@/components/Chat-input";
-import { BirdIcon, Bot, Newspaper, Rabbit } from "lucide-react";
+import { BirdIcon, Bot, icons, Newspaper, Rabbit } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 import CurvedArrow from "@/app/assets/curveArrow.png";
@@ -14,7 +14,23 @@ import {
 } from "@/components/ui/card";
 
 export default function Home() {
-  const features = [{}];
+  const features = [
+    {
+      title: "Mission",
+      describe: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      icon: "BirdIcon",
+    },
+    {
+      title: "Vision",
+      describe: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      icon: "Rabbit",
+    },
+    {
+      title: "Tips",
+      describe: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      icon: "Newspaper",
+    },
+  ];
   return (
     <main className="mt-10 flex min-h-screen flex-col items-center justify-center gap-5">
       {/* Bot icon  */}
@@ -25,7 +41,7 @@ export default function Home() {
         <h1 className="light:text-cbeaiclr-3 mb-1 text-center text-3xl font-bold text-cbeaiclr-3 dark:text-cbeaiclr-5 md:text-5xl">
           Welcome to the{" "}
           <span className="block rounded-xl bg-cbeaiclr-1 p-2 text-white sm:inline-block">
-            CBE AI 🤖
+            CBE AI
           </span>
         </h1>
         <p className="p-4 text-center font-mono text-sm text-cbeaiclr-1">
@@ -53,22 +69,31 @@ export default function Home() {
 
         <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:px-5 lg:grid-cols-3 lg:px-10">
           {/* Card 01 */}
-          <Card className="bg-[#f0f0f0] shadow dark:bg-background">
-            <CardContent className="flex flex-col items-center justify-center text-center">
-              <CardHeader>
-                <div className="flex h-20 w-20 items-center justify-center rounded-full border">
-                  <BirdIcon size={50} strokeWidth={0.5} />
-                </div>
-                <CardTitle>Mission</CardTitle>
-              </CardHeader>
-              <CardDescription>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </CardDescription>
-            </CardContent>
-          </Card>
+          {features.map((feature) => (
+            <Card
+              className="bg-[#f0f0f0] shadow dark:bg-background"
+              key={feature.title}
+            >
+              <CardContent className="flex flex-col items-center justify-center text-center">
+                <CardHeader>
+                  <div className="flex h-20 w-20 items-center justify-center rounded-full border">
+                    {feature.icon === "BirdIcon" ? (
+                      <BirdIcon size={50} strokeWidth={0.5} />
+                    ) : feature.icon === "Rabbit" ? (
+                      <Rabbit size={50} strokeWidth={0.5} />
+                    ) : (
+                      <Newspaper size={50} strokeWidth={0.5} />
+                    )}
+                  </div>
+                  <CardTitle>{feature.title}</CardTitle>
+                </CardHeader>
+                <CardDescription>{feature.describe}</CardDescription>
+              </CardContent>
+            </Card>
+          ))}
 
           {/* Card 02 */}
-          <Card className="bg-[#f0f0f0] shadow dark:bg-background">
+          {/* <Card className="bg-[#f0f0f0] shadow dark:bg-background">
             <CardContent className="flex flex-col items-center justify-center text-center">
               <CardHeader>
                 <div className="flex h-20 w-20 items-center justify-center rounded-full border ">
@@ -80,10 +105,10 @@ export default function Home() {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </CardDescription>
             </CardContent>
-          </Card>
+          </Card> */}
 
           {/* Card 03 */}
-          <Card className="bg-[#f0f0f0] shadow dark:bg-background">
+          {/* <Card className="bg-[#f0f0f0] shadow dark:bg-background">
             <CardContent className="flex flex-col items-center justify-center text-center">
               <CardHeader>
                 <div className="flex h-20 w-20 items-center justify-center rounded-full border">
@@ -95,7 +120,7 @@ export default function Home() {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </CardDescription>
             </CardContent>
-          </Card>
+          </Card> */}
         </div>
       </div>
     </main>
