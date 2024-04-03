@@ -75,7 +75,7 @@ function AsideComponent() {
           </div>
         </ScrollArea>
         <Link
-          href={"/"}
+          href={"/prompt"}
           className="flex items-center justify-center gap-2 text-[9px] text-gray-800"
         >
           view more prompt <ArrowUpRight size={9} />
