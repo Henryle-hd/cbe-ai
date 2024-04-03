@@ -67,7 +67,7 @@ export default function Home() {
       <div className="my-10 flex flex-col items-center justify-center gap-4">
         <h1>Key Features</h1>
 
-        <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:px-5 lg:grid-cols-3 lg:px-10">
+        <div className="grid grid-cols-1 gap-2 px-3 md:grid-cols-2 md:px-5 lg:grid-cols-3 lg:px-10">
           {/* Card 01 */}
           {features.map((feature) => (
             <Card
