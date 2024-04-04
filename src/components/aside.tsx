@@ -13,7 +13,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { ThemeToggle } from "./themeToggle";
 
 const tags = Array.from({ length: 50 }).map(
-  (_, i, a) => `v1.2.0-beta.${a.length - i}`,
+  (_, i, a) => `Most asked questions ${a.length - i}`,
 );
 
 const otherLinks = [
@@ -33,7 +33,7 @@ const otherLinks = [
 
 function AsideComponent() {
   return (
-    <Card className="sticky left-0 top-0 flex min-h-screen w-full  flex-col justify-start gap-2 rounded-l-none rounded-r-xl bg-[#f0f0f0] px-1 dark:bg-background">
+    <Card className="sticky left-0 top-0 flex max-h-[100vh] min-h-screen w-full  flex-col justify-start gap-2 overflow-hidden rounded-l-none rounded-r-sm bg-[#f0f0f0] px-1 dark:bg-background">
       <CardContent className="flex flex-col justify-start gap-4">
         {/* // cbe logo */}
         <div className="relative left-2 top-0 my-3 flex items-center justify-start gap-3">
@@ -59,8 +59,8 @@ function AsideComponent() {
         />
 
         {/* // container */}
-        <ScrollArea className="h-64 w-full rounded-md border bg-slate-100 dark:bg-background">
-          <div className="p-2">
+        <ScrollArea className=" h-60 w-full rounded-md bg-slate-100 dark:bg-background">
+          <div className="">
             {tags.map((tag) => (
               <Button
                 key={tag}
@@ -81,16 +81,17 @@ function AsideComponent() {
           view more prompt <ArrowUpRight size={9} />
         </Link>
 
-        <div className="mt-1 flex flex-col justify-start gap-2">
+        <Separator />
+        <div className=" flex flex-col justify-start gap-1">
           <h1 className="text-sm font-thin ">Quick Links</h1>
           <div>
             {otherLinks.map((link) => (
               <Link
                 key={link.title}
                 href={link.link}
-                className="flex items-center justify-start gap-2 text-sm text-gray-400"
+                className="flex items-center justify-start gap-2 text-[12px] text-gray-800 dark:text-primary"
               >
-                <ArrowUpRight size={16} />
+                <ArrowUpRight size={12} />
                 {link.title}
               </Link>
             ))}

@@ -39,9 +39,7 @@ export default function Aichat() {
               <div className="mb-4 flex w-full items-center justify-end gap-4">
                 <Card className="flex w-auto items-center justify-end">
                   <CardContent className="p-2 md:p-4 lg:p-4">
-                    <p className="sm:text-sm md:text-lg lg:text-lg">
-                      {message.message}
-                    </p>
+                    <p className="">{message.message}</p>
                   </CardContent>
                 </Card>
 
@@ -65,11 +63,9 @@ export default function Aichat() {
                   <AvatarFallback>AI</AvatarFallback>
                 </Avatar>
 
-                <Card className="mb-4 flex w-auto  items-start justify-start ">
+                <Card className="mb-4 flex w-auto  items-start justify-start leading-6 ">
                   <CardContent className="p-2 md:p-4 lg:p-4">
-                    <p className="sm:text-sm md:text-lg lg:text-lg">
-                      {message.message}
-                    </p>
+                    <p className="  ">{message.message}</p>
                   </CardContent>
                 </Card>
               </div>
@@ -77,7 +73,7 @@ export default function Aichat() {
           </div>
         ))}
       </ScrollArea>
-      <div className="px-14  ">
+      <div className="px-14  pb-5">
         <ChatInput />
       </div>
       {/* absolute inset-x-0 bottom-10 translate-y-5 px-10 */}
