@@ -29,12 +29,15 @@ const chatMessages = [
 export default function Aichat() {
   return (
     <main className="relative flex h-screen flex-col sm:px-2 md:px-4 lg:px-10">
-      <ScrollArea className="lgp-10 h-full p-2 md:p-4">
+      <ScrollArea
+        className="h-full bg-transparent p-2 px-3 md:p-4 lg:p-10"
+        scrollHideDelay={10}
+      >
         {chatMessages.map((message, index) => (
           <div key={index} className="mb-4 flex items-start gap-2 md:gap-4">
             {message.from === "user" ? (
-              <div className="mb-4 flex w-full items-start gap-4">
-                <Card className="flex w-full items-center justify-end">
+              <div className="mb-4 flex w-full items-center justify-end gap-4">
+                <Card className="flex w-auto items-center justify-end">
                   <CardContent className="p-2 md:p-4 lg:p-4">
                     <p className="sm:text-sm md:text-lg lg:text-lg">
                       {message.message}
@@ -51,16 +54,18 @@ export default function Aichat() {
                 </Avatar>
               </div>
             ) : (
-              <div className="mb-4 flex items-start gap-2 md:gap-4">
+              <div className="mb-4 flex items-start gap-2 pr-12 md:gap-4">
                 <Avatar>
                   <AvatarImage
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWqvBDQ64tDprRHBbE39VarOmjIalLSXDFLQ&usqp=CAU"
+                    src="https://www.iconarchive.com/download/i140988/microsoft/fluentui-emoji-flat/Robot-Flat.1024.png"
                     alt="cbe"
+                    className="object-cover"
                   />
+
                   <AvatarFallback>AI</AvatarFallback>
                 </Avatar>
 
-                <Card className="mb-4 flex w-full items-start justify-start">
+                <Card className="mb-4 flex w-auto  items-start justify-start ">
                   <CardContent className="p-2 md:p-4 lg:p-4">
                     <p className="sm:text-sm md:text-lg lg:text-lg">
                       {message.message}
@@ -72,10 +77,10 @@ export default function Aichat() {
           </div>
         ))}
       </ScrollArea>
-
-      <div className="absolute inset-x-0 bottom-10 translate-y-5 px-10">
+      <div className="px-14  ">
         <ChatInput />
       </div>
+      {/* absolute inset-x-0 bottom-10 translate-y-5 px-10 */}
     </main>
   );
 }
