@@ -37,8 +37,8 @@ export default function Aichat() {
           <div key={index} className="mb-4 flex items-start gap-2 md:gap-4">
             {message.from === "user" ? (
               <div className="mb-4 flex w-full items-center justify-end gap-4">
-                <Card className="flex w-auto items-center justify-end">
-                  <CardContent className="p-2 md:p-4 lg:p-4">
+                <Card className="flex w-auto items-center justify-end bg-foreground text-background">
+                  <CardContent className=" p-2  md:p-4 lg:p-4">
                     <p className="">{message.message}</p>
                   </CardContent>
                 </Card>
