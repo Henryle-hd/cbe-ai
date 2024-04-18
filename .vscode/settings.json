@@ -1,5 +1,7 @@
 {
     "cSpell.words": [
         "cbeaiclr"
-    ]
+    ],
+    "WillLuke.nextjs.addTypesOnSave": true,
+    "WillLuke.nextjs.hasPrompted": true
 }
