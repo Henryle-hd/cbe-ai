@@ -5,6 +5,8 @@ import { ThemeProvider } from "@/components/ui/theme-provider";
 import { cn } from "@/lib/utils";
 import AsideComponent from "@/components/aside";
 import SmallScreen from "@/components/menu";
+import { ClerkProvider } from '@clerk/nextjs'
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(inter.className, "grid grid-cols-12 gap-2")}>
+      <ClerkProvider>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -39,7 +42,8 @@ export default function RootLayout({
             {children}
           </div>
         </ThemeProvider>
-      </body>
-    </html>
+      </ClerkProvider>
+    </body>
+    </html >
   );
 }

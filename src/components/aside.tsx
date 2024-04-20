@@ -11,6 +11,7 @@ import TypeWriterTitle from "./typewriter";
 import { Button } from "./ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ThemeToggle } from "./themeToggle";
+import { UserButton } from "@clerk/nextjs";
 
 const tags = Array.from({ length: 50 }).map(
   (_, i, a) => `Most asked questions ${a.length - i}`,
@@ -47,8 +48,12 @@ function AsideComponent() {
             </AvatarFallback>
           </Avatar>
 
-          <div className="text-xl font-bold text-cbeaiclr-1">
+          <div className="text-xl font-bold text-cbeaiclr-1 w-full">
             <TypeWriterTitle />
+          </div>
+
+          <div className=" bottom-0 right-1 flex items-center justify-end">
+            <UserButton afterSignOutUrl="/" />
           </div>
         </div>
 
@@ -100,7 +105,7 @@ function AsideComponent() {
 
         <Separator />
         {/* // delete conversation */}
-        <div className="flex flex-col items-start justify-start gap-2 text-[12px]">
+        <div className="flex flex-col items-start justify-start gap-2 text-[12px] relative h-full">
           <div className="flex  items-center justify-start gap-2">
             <Button
               variant={"outline"}
@@ -117,6 +122,7 @@ function AsideComponent() {
             <ThemeToggle /> <span>change mode</span>
           </div>
         </div>
+
       </CardContent>
     </Card>
   );
