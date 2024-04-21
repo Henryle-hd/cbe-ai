@@ -60,11 +60,11 @@ function AsideComponent() {
         {/* // search prompt */}
         <Input
           placeholder="Search prompt..."
-          className="rounded-lg text-gray-800"
+          className="rounded-lg text-gray-800 h-14"
         />
 
         {/* // container */}
-        <ScrollArea className=" h-60 w-full rounded-md bg-slate-100 dark:bg-background">
+        <ScrollArea className=" h-96 w-full rounded-md bg-slate-100 dark:bg-background">
           <div className="">
             {tags.map((tag) => (
               <Button
@@ -81,9 +81,9 @@ function AsideComponent() {
         </ScrollArea>
         <Link
           href={"/prompt"}
-          className="flex items-center justify-center gap-2 text-[9px] text-gray-800"
+          className="flex items-center justify-center gap-2 text-[16px] text-gray-800"
         >
-          view more prompt <ArrowUpRight size={9} />
+          view more prompt <ArrowUpRight size={16} />
         </Link>
 
         <Separator />
