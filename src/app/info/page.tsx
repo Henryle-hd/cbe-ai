@@ -6,7 +6,7 @@ export default async function InfoPage() {
     const { userId } = auth();
 
     if (!userId) throw new Error('UserId undefined');
-    const allInfos = await prisma.info.findMany();
+    const allInfos = await prisma.info.findMany({});
 
   return (
     <div>

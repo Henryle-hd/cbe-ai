@@ -29,6 +29,7 @@ export async function POST(req:Request){
             data: {
                 title,
                 main_body,
+                
 
     }
 })

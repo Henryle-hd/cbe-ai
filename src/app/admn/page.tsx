@@ -1,22 +1,26 @@
-import { UserButton } from "@clerk/nextjs";
 import OpenAddDialog from "@/components/openAddDialog";
+import prisma from "@/lib/db/prisma";
+import { auth } from "@clerk/nextjs";
 
 
-export default function Page() {
+export default async function Page() {
 
   //→→try to put this code to home page i think will be better
   // console.log("userId", userId);
   // if (userId !== 'user_2fGt4y5s9WPx2Kc9sqy6dQrvBZa') {
   //   router.push("/");
   // }
-
+  const { userId } = auth();
+  if (!userId) throw new Error("UserId undefined");
+  const allInfos = await prisma.prompt.findMany();
 
   return (
     <>
-     <OpenAddDialog />
+      <OpenAddDialog />
+
+      <div>{JSON.stringify(allInfos)}</div>
     </>
-  )
-    ;
+  );
 }
 
 
