@@ -7,3 +7,12 @@ export const addInfoSchema = z.object({
 
 
 export type AddInfoInput = z.infer<typeof addInfoSchema>
+
+export const updateInfoSchema = addInfoSchema.extend({
+  id: z.string().min(1)
+})
+
+
+export const deleteInfoSchema= z.object({
+  id: z.string().min(1)
+})

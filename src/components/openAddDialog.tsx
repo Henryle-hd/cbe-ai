@@ -1,7 +1,7 @@
 "use client";
 import { Plus } from "lucide-react";
 import React, { useState, useEffect } from "react";
-import AddCategory from "./addCategory";
+import AddEditCategory from "./addEditCategory";
 import { Card, CardContent } from "./ui/card";
 export default function OpenAddDialog() {
   const [showDialog, setShowDialog] = useState(false);
@@ -17,7 +17,7 @@ export default function OpenAddDialog() {
         </CardContent>
       </Card>
       <div className="flex flex-col items-center justify-center ">
-        <AddCategory open={showDialog} setOpen={setShowDialog} />
+        <AddEditCategory open={showDialog} setOpen={setShowDialog} />
       </div>
     </>
   );

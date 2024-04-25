@@ -2,6 +2,7 @@ import CbeInfoList from "@/components/cbe-info-list";
 import OpenAddDialog from "@/components/openAddDialog";
 import prisma from "@/lib/db/prisma";
 import { auth } from "@clerk/nextjs";
+import { BirdIcon } from "lucide-react";
 
 
 export default async function Page() {
@@ -37,6 +38,12 @@ export default async function Page() {
             </div>
           ))}
       </div>
+      {allInfos.length === 0 && (
+        <div className="mt-5 flex flex-col items-center justify-center text-center text-cbeaiclr-1 ">
+          <BirdIcon size={200} strokeWidth={1} className="animate-bounce" />
+          No info yet
+        </div>
+      )}
     </div>
   );
 }
