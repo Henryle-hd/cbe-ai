@@ -31,9 +31,9 @@ export default function AddCategory({ open, setOpen }: addCategoryProps) {
         <DialogDescription>Title</DialogDescription>
         <Input placeholder="Title.. " />
 
-        <DialogDescription>Description</DialogDescription>
+        <DialogDescription>Main body</DialogDescription>
 
-        <Textarea placeholder="Description" className="min-h-[50vh]" />
+        <Textarea placeholder="Enter information in detail" className="min-h-[50vh]" />
         <DialogFooter>
           <Button>Submit</Button>
         </DialogFooter>
