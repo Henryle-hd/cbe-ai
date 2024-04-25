@@ -5,6 +5,7 @@ import { ThemeToggle } from "./themeToggle";
 import TypeWriterTitle from "./typewriter";
 import { Separator } from "./ui/separator";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { UserButton } from "@clerk/nextjs";
 
 export default function SmallScreen() {
   return (
@@ -26,6 +27,7 @@ export default function SmallScreen() {
           </div>
         </div>
         <div className="flex items-center gap-2">
+          <UserButton />
           <ThemeToggle />
 
           {/* <Button variant={"destructive"}>

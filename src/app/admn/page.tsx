@@ -1,3 +1,4 @@
+import CbeInfoList from "@/components/cbe-info-list";
 import OpenAddDialog from "@/components/openAddDialog";
 import prisma from "@/lib/db/prisma";
 import { auth } from "@clerk/nextjs";
@@ -10,16 +11,33 @@ export default async function Page() {
   // if (userId !== 'user_2fGt4y5s9WPx2Kc9sqy6dQrvBZa') {
   //   router.push("/");
   // }
+
+
+  //find the info model from prisma
   const { userId } = auth();
   if (!userId) throw new Error("UserId undefined");
-  const allInfos = await prisma.prompt.findMany();
+  const allInfos = await prisma.info.findMany();
 
   return (
-    <>
-      <OpenAddDialog />
+    <div className="mt-16">
+      {/* info */}
+      <div className="mt-5 grid grid-flow-dense gap-3 px-4 sm:grid-cols-2 lg:grid-cols-3">
+        {/* add container */}
+        <div>
+          <OpenAddDialog />
+        </div>
 
-      <div>{JSON.stringify(allInfos)}</div>
-    </>
+        {/* cbe-info  from the last element to the first one!*/}
+        {allInfos
+          .slice()
+          .reverse()
+          .map((info) => (
+            <div key={info.title}>
+              <CbeInfoList info={info} />
+            </div>
+          ))}
+      </div>
+    </div>
   );
 }
 
