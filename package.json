@@ -12,6 +12,7 @@
   "dependencies": {
     "@clerk/nextjs": "^4.29.12",
     "@hookform/resolvers": "^3.3.4",
+    "@pinecone-database/pinecone": "^2.2.0",
     "@prisma/client": "^5.12.1",
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.5",
@@ -28,6 +29,7 @@
     "mongodb": "^6.5.0",
     "next": "14.0.3",
     "next-themes": "^0.3.0",
+    "openai": "^4.38.5",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.12",
     "react": "^18",

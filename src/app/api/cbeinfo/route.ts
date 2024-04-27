@@ -1,7 +1,11 @@
+import { cbeinfoIndex } from "@/lib/db/pinecone";
 import prisma from "@/lib/db/prisma";
+import { getCbeinfoEmbedding } from "@/lib/openia";
 import { addInfoSchema, deleteInfoSchema, updateInfoSchema } from "@/lib/validation/cbeinfo";
 import { auth } from "@clerk/nextjs";
 
+
+//create info in db and index
 export async function POST(req:Request){
     try {
         const body = await req.json();
@@ -22,15 +26,28 @@ export async function POST(req:Request){
             )
         }
 
-        const info = await prisma.info.create({
-            data: {
+        const embedding = await getEmbeddingForCbeInfo(title, main_body);
+
+        //will be loaded back if the transaction is fail
+        const info = await prisma.$transaction(async (tx) => {
+            const info = await tx.info.create({
+                data: {
                 title,
                 main_body,
+                },
+            });
 
-            }
+            // will be created when the above operation is complete successfully
+            await cbeinfoIndex.upsert([
+                {
+                    id: info.id,
+                    values: embedding,
+                }
+            ])
+            return info;
         })
 
-        return Response.json({info}, {status: 201});
+     return Response.json({info}, {status: 201});
     } catch (error) {
         console.error(error);
         return Response.json({error:"Internal server error"},{status:500});
@@ -38,17 +55,19 @@ export async function POST(req:Request){
 }
 
 
+
+//update info in db and index
 export async function PUT(req: Request) {
     try {
         const body = await req.json();
         const parseResult = updateInfoSchema.safeParse(body);
 
         if (!parseResult.success) {
-          console.error(parseResult.error);
-          return Response.json(
+        console.error(parseResult.error);
+        return Response.json(
             { error: "Invalid info provided" },
             { status: 400 },
-          );
+        );
         }
 
         const { id, title, main_body } = parseResult.data; // Destructure validated data
@@ -60,34 +79,49 @@ export async function PUT(req: Request) {
 
         const { userId } = auth();
         if (!userId) {
-          return Response.json({ error: "Unauthorized" }, { status: 401 });
+        return Response.json({ error: "Unauthorized" }, { status: 401 });
         }
 
-        const updatedInfo=await prisma.info.update({
+
+        const embedding = await getEmbeddingForCbeInfo(title, main_body);
+        const updatedInfo = await prisma.$transaction(async (tx) => {
+            const updatedInfo = await tx.info.update({
             where: { id },
             data: {
                 title,
                 main_body,
             },
+            });
+
+            await cbeinfoIndex.upsert([
+                {
+                    id,
+                    values: embedding,
+                }
+            ])
+
+            return updatedInfo;
         })
-return Response.json({updatedInfo}, {status: 200});
+    return Response.json({updatedInfo}, {status: 200});
     }
     catch (error) {
         console.error(error);
         return Response.json({ error: "Internal server error" }, { status: 500 });
     }
 }
+
+//delete info from db and index
 export async function DELETE(req: Request) {
     try {
         const body = await req.json();
         const parseResult = deleteInfoSchema.safeParse(body);
 
         if (!parseResult.success) {
-          console.error(parseResult.error);
-          return Response.json(
+        console.error(parseResult.error);
+        return Response.json(
             { error: "Invalid info provided" },
             { status: 400 },
-          );
+        );
         }
 
         const { id } = parseResult.data; // Destructure validated data
@@ -98,12 +132,15 @@ export async function DELETE(req: Request) {
         }
 
         const { userId } = auth();
-        if (!userId) { 
-          return Response.json({ error: "Unauthorized" }, { status: 401 });
+        if (!userId) {
+        return Response.json({ error: "Unauthorized" }, { status: 401 });
         }
 
-    await prisma.info.delete({
-            where: { id }
+        await prisma.$transaction(async (tx) => {
+            await tx.info.delete({
+            where: { id },
+            });
+            await cbeinfoIndex.deleteOne(id);
         })
         return Response.json({message:"Info deleted"},{status: 200});
     }
@@ -111,4 +148,9 @@ export async function DELETE(req: Request) {
         console.error(error);
         return Response.json({ error: "Internal server error" }, { status: 500 });
     }
+}
+
+
+async function getEmbeddingForCbeInfo(title: string, main_body:string) {
+    return getCbeinfoEmbedding(title + "\n\n " + main_body);
 }
