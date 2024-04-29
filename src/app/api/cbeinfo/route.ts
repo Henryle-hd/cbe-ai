@@ -3,11 +3,13 @@ import prisma from "@/lib/db/prisma";
 import { getCbeinfoEmbedding } from "@/lib/openia";
 import { addInfoSchema, deleteInfoSchema, updateInfoSchema } from "@/lib/validation/cbeinfo";
 import { auth } from "@clerk/nextjs";
+import { error } from "console";
 
 
 //create info in db and index
 export async function POST(req:Request){
     try {
+       
         const body = await req.json();
         const parseResult = addInfoSchema.safeParse(body);
 
@@ -28,7 +30,7 @@ export async function POST(req:Request){
 
         const embedding = await getEmbeddingForCbeInfo(title, main_body);
 
-        //will be loaded back if the transaction is fail
+        //will be roled back if the transaction is fail
         const info = await prisma.$transaction(async (tx) => {
             const info = await tx.info.create({
                 data: {
@@ -84,6 +86,8 @@ export async function PUT(req: Request) {
 
 
         const embedding = await getEmbeddingForCbeInfo(title, main_body);
+
+        //if the operation fails, the next operation will not be executed
         const updatedInfo = await prisma.$transaction(async (tx) => {
             const updatedInfo = await tx.info.update({
             where: { id },
@@ -93,6 +97,7 @@ export async function PUT(req: Request) {
             },
             });
 
+            //if the operation fails the the above operation will roled back
             await cbeinfoIndex.upsert([
                 {
                     id,
@@ -109,6 +114,8 @@ export async function PUT(req: Request) {
         return Response.json({ error: "Internal server error" }, { status: 500 });
     }
 }
+
+
 
 //delete info from db and index
 export async function DELETE(req: Request) {
@@ -136,6 +143,8 @@ export async function DELETE(req: Request) {
         return Response.json({ error: "Unauthorized" }, { status: 401 });
         }
 
+        //info deleted when both operations are successful
+
         await prisma.$transaction(async (tx) => {
             await tx.info.delete({
             where: { id },
@@ -150,6 +159,9 @@ export async function DELETE(req: Request) {
     }
 }
 
+
+
+//fuction to sent data and get response as embedding
 
 async function getEmbeddingForCbeInfo(title: string, main_body:string) {
     return getCbeinfoEmbedding(title + "\n\n " + main_body);

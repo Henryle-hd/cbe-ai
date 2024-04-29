@@ -88,7 +88,7 @@ function AsideComponent() {
 
         <Separator />
         <div className=" flex flex-col justify-start gap-1">
-          <h1 className="text-sm font-thin ">Quick Links</h1>
+          <h1 className="text-lg font-thin ">Quick Links</h1>
           <div>
             {otherLinks.map((link) => (
               <Link
