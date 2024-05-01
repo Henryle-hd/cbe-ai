@@ -26,8 +26,9 @@ export default function CbeInfoList(
     ).toDateString();
   return (
     <>
-      <Card className="max-h-[45vh] cursor-pointer overflow-scroll transition-shadow hover:shadow-lg"
-      onClick={()=>setShowEditDialog(true)}
+      <Card
+        className="no-scrollbar max-h-[45vh] cursor-pointer overflow-scroll transition-shadow hover:shadow-lg"
+        onClick={() => setShowEditDialog(true)}
       >
         <CardHeader>
           <CardTitle className="text-[#7bd5f5]">{info.title}</CardTitle>
@@ -43,8 +44,10 @@ export default function CbeInfoList(
           <p className="whitespace-pre-line">{info.main_body}</p>
         </CardContent>
       </Card>
-      <AddCategory open={showEditDialog} setOpen={setShowEditDialog}
-      infoToEdit={info}
+      <AddCategory
+        open={showEditDialog}
+        setOpen={setShowEditDialog}
+        infoToEdit={info}
       />
     </>
   );

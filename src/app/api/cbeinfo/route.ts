@@ -9,7 +9,6 @@ import { error } from "console";
 //create info in db and index
 export async function POST(req:Request){
     try {
-       
         const body = await req.json();
         const parseResult = addInfoSchema.safeParse(body);
 

@@ -23,27 +23,29 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(inter.className, "grid grid-cols-12 gap-2")}>
-      <ClerkProvider>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="col-start-1 col-end-13 block md:hidden">
-            <SmallScreen />
-          </div>
-          <div className="col-start-1 col-end-5  hidden  md:block lg:col-end-4">
-            <AsideComponent />
-          </div>
+      <body
+        className={cn(inter.className, "no-scrollbar grid grid-cols-12 gap-2")}
+      >
+        <ClerkProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <div className="col-start-1 col-end-13 block md:hidden">
+              <SmallScreen />
+            </div>
+            <div className="col-start-1 col-end-5  hidden  md:block lg:col-end-4">
+              <AsideComponent />
+            </div>
 
-          <div className="col-start-1 col-end-13 md:col-start-5 lg:col-start-4">
-            {children}
-          </div>
-        </ThemeProvider>
-      </ClerkProvider>
-    </body>
-    </html >
+            <div className="col-start-1 col-end-13 md:col-start-5 lg:col-start-4">
+              {children}
+            </div>
+          </ThemeProvider>
+        </ClerkProvider>
+      </body>
+    </html>
   );
 }

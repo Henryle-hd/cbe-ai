@@ -20,7 +20,7 @@ export default async function Page() {
   const allInfos = await prisma.info.findMany();
 
   return (
-    <div className="mt-16">
+    <div className="no-scrollbar mt-16">
       {/* info */}
       <div className="mt-5 grid grid-flow-dense gap-3 px-4 sm:grid-cols-2 lg:grid-cols-3">
         {/* add container */}
