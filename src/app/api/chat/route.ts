@@ -6,7 +6,6 @@ import { ChatCompletionMessage } from "openai/resources/index.mjs";
 
 export async function POST(req: Request) {
     try {
-        
     const body = await req.json();
     const messages: ChatCompletionMessage[] = body.messages;
     const messageTruncated = messages.slice(-6);
