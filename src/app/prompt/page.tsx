@@ -38,7 +38,7 @@ export default function PromptPage() {
     //     </CommandList>
     //   </Command>
     // </div>
-    <div className="flex items-center justify-center  pt-5">
+    <div className="flex items-center justify-center  pt-5 ">
       <div className=" flex w-[80%] flex-col items-start justify-center gap-4 rounded-lg border bg-[#f0f0f0] p-2 dark:bg-background sm:w-[80%]">
         <Button asChild>
           <Link href={"/chat"}>
@@ -48,7 +48,7 @@ export default function PromptPage() {
         </Button>
         <Separator />
 
-        <div className="flex h-[80vh] w-full flex-col items-center justify-start gap-2 overflow-auto p-2 ">
+        <div className="flex h-[80vh] w-full flex-col items-center justify-start gap-2 overflow-auto p-2 no-scrollbar">
           {tags.map((tag) => (
             <Button
               key={tag}

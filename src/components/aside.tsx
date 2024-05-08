@@ -12,6 +12,7 @@ import { Button } from "./ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ThemeToggle } from "./themeToggle";
 import { UserButton } from "@clerk/nextjs";
+import { useRouter } from 'next/navigation'
 
 const tags = Array.from({ length: 50 }).map(
   (_, i, a) => `Most asked questions ${a.length - i}`,
@@ -33,6 +34,9 @@ const otherLinks = [
 ];
 
 function AsideComponent() {
+  const router = useRouter()
+
+
   return (
     <Card className="sticky left-0 top-0 flex max-h-[100vh] min-h-screen w-full  flex-col justify-start gap-2 overflow-hidden rounded-l-none rounded-r-sm bg-[#f0f0f0] px-1 dark:bg-background">
       <CardContent className="flex flex-col justify-start gap-4">
@@ -60,7 +64,7 @@ function AsideComponent() {
         {/* // search prompt */}
         <Input
           placeholder="Search prompt..."
-          className="rounded-lg text-gray-800 h-14"
+          className="rounded-lg text-gray-800 h-10"
         />
 
         {/* // container */}
@@ -70,9 +74,9 @@ function AsideComponent() {
               <Button
                 key={tag}
                 variant="outline"
-                size={"lg"}
+                size={"sm"}
                 className="mb-2 w-full text-sm"
-                onClick={() => console.log("clicked")}
+                onClick={() => router.push(`/chat/${tag}`)}
               >
                 {tag}
               </Button>
