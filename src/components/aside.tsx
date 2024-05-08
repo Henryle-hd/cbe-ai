@@ -38,7 +38,7 @@ function AsideComponent() {
 
 
   return (
-    <Card className="sticky left-0 top-0 flex max-h-[100vh] min-h-screen w-full  flex-col justify-start gap-2 overflow-hidden rounded-l-none rounded-r-sm bg-[#f0f0f0] px-1 dark:bg-background">
+    <Card className="sticky left-0 top-0 flex max-h-[100vh] min-h-screen w-full  flex-col justify-start gap-2 overflow-y-auto rounded-l-none rounded-r-sm bg-[#f0f0f0] px-1 dark:bg-background no-scrollbar">
       <CardContent className="flex flex-col justify-start gap-4">
         {/* // cbe logo */}
         <div className="relative left-2 top-0 my-3 flex items-center justify-start gap-3">
@@ -68,7 +68,7 @@ function AsideComponent() {
         />
 
         {/* // container */}
-        <ScrollArea className=" h-96 w-full rounded-md bg-slate-100 dark:bg-background">
+        <ScrollArea className=" h-96 w-full rounded-md bg-slate-100 dark:bg-background no-scrollbar">
           <div className="">
             {tags.map((tag) => (
               <Button
