@@ -65,7 +65,7 @@ export default function Aichat({ params }: { params: { slug: string } }) {
   return (
     <main className="relative flex h-screen flex-col sm:px-2 md:px-4 lg:px-10">
       <div
-        className="h-full overflow-auto bg-transparent p-2 px-3 md:p-4 lg:p-10"
+        className="h-full overflow-auto bg-transparent p-2 px-3 md:p-4 lg:p-10 no-scrollbar"
         ref={scrollRef}
       >
         {messages.map((message) => (
