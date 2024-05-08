@@ -1,9 +1,8 @@
 "use client";
 
-import ChatInput from "@/components/Chat-input";
-import { BirdIcon, Bot, icons, Newspaper, Rabbit } from "lucide-react";
+import { BirdIcon, Bot, icons, Newspaper, Rabbit, Send } from "lucide-react";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import CurvedArrow from "@/app/assets/curveArrow.png";
 import {
   Card,
@@ -12,8 +11,36 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
+  const [input, setInput] = useState("");
+
+  const router = useRouter();
+
+  const handleInputChange = (event: any) => {
+    setInput(event.target.value);
+  }
+
+  const createSlug = (input: string) => {
+    return input.toLowerCase().replace(/ /g, "-");
+  };
+
+  const handleRedirect = () => {
+    const slug = createSlug(input);
+    router.push(`/chat/${slug}`);
+  };
+
+
+
   const features = [
     {
       title: "Mission",
@@ -60,7 +87,25 @@ export default function Home() {
 
       {/* input prompt  */}
       <div className="h-10 w-[70%] ">
-        <ChatInput />
+        {/* <ChatInput /> */}
+        <div className="flex h-14 items-center justify-center rounded-md border bg-background p-1 shadow-md">
+          <Input
+            value={input}
+            onChange={handleInputChange}
+            ref={inputRef}
+            className="h-full w-full rounded-none border-none bg-transparent focus-visible:ring-0"
+            placeholder="Type a message..."
+            type="text"
+          />
+          <Button
+            className="h-full rounded-md rounded-l-none bg-cbeaiclr-1"
+            size={"icon"}
+            onClick={() => handleRedirect()}
+            aria-label="Send Message"
+          >
+            <Send />
+          </Button>
+        </div>
       </div>
 
       {/* features objectives  */}

@@ -15,27 +15,8 @@ import { useEffect, useRef } from "react";
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
-// const chatMessages = [
-//   {
-//     from: "user",
-//     message: "In Briefly explain the history of Cbe",
-//   },
-//   {
-//     from: "AI",
-//     message:
-//       "As the College of Business Education (CBE) celebrates 40 years anniversary, we are prestigiously appreciating the extent to which the College has inspired the lives and careers of students and alumni. We are also happy to serve the general public by conducting practical training, applied research activities and consultancy. Over the 40 years, CBE has registered significant achievements being provision of quality business knowledge and skills to over 50,000 graduates in business related disciplines at various academic levels, that is, from certificates, diploma, bachelors and masters degrees.During academic year 2022/2023, the College enrolled a total of 16,322 students in its four campuses of Dar es salaam, Dodoma, Mwanza and Mbeya, out of which 3,962 students were enrolled at Dodoma Campus.Furthermore, the College has improved its learning environment at all its four campuses. Specifically, the College has renovated buildings, revamped drainage systems and has been fixing modern learning facilities in classrooms. This has then contributed to better academic performance.",
-//   },
-//   {
-//     from: "user",
-//     message: "In Briefly explain the history of Cbe",
-//   },
-//   {
-//     from: "AI",
-//     message:
-//       "As the College of Business Education (CBE) celebrates 40 years anniversary, we are prestigiously appreciating the extent to which the College has inspired the lives and careers of students and alumni. We are also happy to serve the general public by conducting practical training, applied research activities and consultancy. Over the 40 years, CBE has registered significant achievements being provision of quality business knowledge and skills to over 50,000 graduates in business related disciplines at various academic levels, that is, from certificates, diploma, bachelors and masters degrees.During academic year 2022/2023, the College enrolled a total of 16,322 students in its four campuses of Dar es salaam, Dodoma, Mwanza and Mbeya, out of which 3,962 students were enrolled at Dodoma Campus.Furthermore, the College has improved its learning environment at all its four campuses. Specifically, the College has renovated buildings, revamped drainage systems and has been fixing modern learning facilities in classrooms. This has then contributed to better academic performance.",
-//   },
-// ];
-export default function Aichat() {
+
+export default function Aichat({ params }: { params: { slug: string } }) {
   const {
     input,
     messages,
@@ -66,8 +47,20 @@ export default function Aichat() {
     }
   }, [messages]);
 
+  // for passing params into a input and call the function automatic
+  useEffect(() => {
+    if (params.slug && inputRef.current) {
+      // removing the dash from the slug
+      params.slug = params.slug.replace(/-/g, ' ');
+      // setting the value of the input
+      inputRef.current.value = params.slug
+      handleInputChange({ target: { value: params.slug } })
+    }
+  }, [params.slug])
+
 
   const previousMessageIsUser = messages[messages.length - 1]?.role === 'user';
+
 
   return (
     <main className="relative flex h-screen flex-col sm:px-2 md:px-4 lg:px-10">
@@ -111,7 +104,7 @@ export default function Aichat() {
           {/* <Button
             className="h-full rounded-md rounded-r-none "
             size={"icon"}
-            title="clear convesation"
+            title="clear conversation"
             variant={'outline'}
             type="button"
             onClick={() => setMessages([])}
