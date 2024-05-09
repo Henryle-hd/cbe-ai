@@ -13,26 +13,6 @@ import {Message} from 'ai'
 import { cn } from "@/lib/utils";
 import { useEffect, useRef } from "react";
 
-// const chatMessages = [
-//   {
-//     from: "user",
-//     message: "In Briefly explain the history of Cbe",
-//   },
-//   {
-//     from: "AI",
-//     message:
-//       "As the College of Business Education (CBE) celebrates 40 years anniversary, we are prestigiously appreciating the extent to which the College has inspired the lives and careers of students and alumni. We are also happy to serve the general public by conducting practical training, applied research activities and consultancy. Over the 40 years, CBE has registered significant achievements being provision of quality business knowledge and skills to over 50,000 graduates in business related disciplines at various academic levels, that is, from certificates, diploma, bachelors and masters degrees.During academic year 2022/2023, the College enrolled a total of 16,322 students in its four campuses of Dar es salaam, Dodoma, Mwanza and Mbeya, out of which 3,962 students were enrolled at Dodoma Campus.Furthermore, the College has improved its learning environment at all its four campuses. Specifically, the College has renovated buildings, revamped drainage systems and has been fixing modern learning facilities in classrooms. This has then contributed to better academic performance.",
-//   },
-//   {
-//     from: "user",
-//     message: "In Briefly explain the history of Cbe",
-//   },
-//   {
-//     from: "AI",
-//     message:
-//       "As the College of Business Education (CBE) celebrates 40 years anniversary, we are prestigiously appreciating the extent to which the College has inspired the lives and careers of students and alumni. We are also happy to serve the general public by conducting practical training, applied research activities and consultancy. Over the 40 years, CBE has registered significant achievements being provision of quality business knowledge and skills to over 50,000 graduates in business related disciplines at various academic levels, that is, from certificates, diploma, bachelors and masters degrees.During academic year 2022/2023, the College enrolled a total of 16,322 students in its four campuses of Dar es salaam, Dodoma, Mwanza and Mbeya, out of which 3,962 students were enrolled at Dodoma Campus.Furthermore, the College has improved its learning environment at all its four campuses. Specifically, the College has renovated buildings, revamped drainage systems and has been fixing modern learning facilities in classrooms. This has then contributed to better academic performance.",
-//   },
-// ];
 export default function Aichat() {
   const {
     input,
