@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn(inter.className, "no-scrollbar grid grid-cols-12 gap-2")}
+        className={cn(inter.className, "no-scrollbar grid grid-cols-12 gap-2 relative")}
       >
         <ClerkProvider>
           <ThemeProvider
@@ -36,7 +36,7 @@ export default function RootLayout({
             <div className="col-start-1 col-end-13 block md:hidden">
               <SmallScreen />
             </div>
-            <div className="col-start-1 col-end-5  hidden  md:block lg:col-end-4">
+            <div className="col-start-1 col-end-5  hidden  md:block lg:col-end-4 sticky top-0 left-0">
               <AsideComponent />
             </div>
 

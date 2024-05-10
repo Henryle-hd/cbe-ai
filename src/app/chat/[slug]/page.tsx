@@ -15,7 +15,8 @@ import { useEffect, useRef } from "react";
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
-export default function Aichat() {
+
+export default function Aichat({ params }: { params: { slug: string } }) {
   const {
     input,
     messages,
@@ -46,13 +47,25 @@ export default function Aichat() {
     }
   }, [messages]);
 
+  // for passing params into a input and call the function automatic
+  useEffect(() => {
+    if (params.slug && inputRef.current) {
+      // removing the dash from the slug
+      params.slug = params.slug.replace(/-/g, ' ');
+      // setting the value of the input
+      inputRef.current.value = params.slug
+      handleInputChange({ target: { value: params.slug } })
+    }
+  }, [params.slug])
+
 
   const previousMessageIsUser = messages[messages.length - 1]?.role === 'user';
+
 
   return (
     <main className="relative flex h-screen flex-col sm:px-2 md:px-4 lg:px-10">
       <div
-        className="h-full overflow-auto bg-transparent p-2 px-3 md:p-4 lg:p-10"
+        className="h-full overflow-auto bg-transparent p-2 px-3 md:p-4 lg:p-10 no-scrollbar"
         ref={scrollRef}
       >
         {messages.map((message) => (
@@ -91,7 +104,7 @@ export default function Aichat() {
           {/* <Button
             className="h-full rounded-md rounded-r-none "
             size={"icon"}
-            title="clear convesation"
+            title="clear conversation"
             variant={'outline'}
             type="button"
             onClick={() => setMessages([])}
