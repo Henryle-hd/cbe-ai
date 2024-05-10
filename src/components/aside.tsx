@@ -16,6 +16,7 @@ import { cn } from "@/lib/utils";
 import LogOutBtn from "./log-out-btn";
 import prisma from "@/lib/db/prisma";
 import ListOfInfoTitle from "./list-of-info-title";
+import { useRouter } from "next/navigation";
 
 const tags = Array.from({ length: 50 }).map(
   (_, i, a) => `Most asked questions ${a.length - i}`,
@@ -50,7 +51,8 @@ function AsideComponent() {
   const isChatPage =
     typeof window !== "undefined" && window.location.pathname.includes("/chat");
 
- const { isSignedIn, user } = useUser();
+  const { isSignedIn, user } = useUser();
+  const router=useRouter()
 
   return (
     <Card className="sticky left-0 top-0 flex max-h-[100vh] min-h-screen w-full  flex-col justify-start gap-2 overflow-y-auto rounded-l-none rounded-r-sm bg-[#f0f0f0] px-1 dark:bg-background no-scrollbar">
@@ -87,7 +89,7 @@ function AsideComponent() {
                   variant="outline"
                   size={"lg"}
                   className="mb-2 w-full text-sm"
-                  onClick={() => console.log("clicked")}
+                  onClick={() => router.push(`chat/${tag}`)}
                 >
                   {tag}
                 </Button>
