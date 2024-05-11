@@ -30,7 +30,5 @@ model Info{
 model Prompt{
   id String @id @default(auto()) @map("_id") @db.ObjectId
   prompt String
-  createdAt DateTime @default(now())
-
   @@map("prompt")
 }

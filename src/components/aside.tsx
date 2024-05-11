@@ -15,8 +15,9 @@ import {UserButton, useUser } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
 import LogOutBtn from "./log-out-btn";
 import prisma from "@/lib/db/prisma";
-import ListOfInfoTitle from "./list-of-info-title";
+import ListOfInfoTitle from "./listOfCbeInfoTitleFetch";
 import { useRouter } from "next/navigation";
+import ListOfInfoTitleFetch from "./listOfCbeInfoTitleFetch";
 
 const tags = Array.from({ length: 50 }).map(
   (_, i, a) => `Most asked questions ${a.length - i}`,
@@ -55,7 +56,7 @@ function AsideComponent() {
   const router=useRouter()
 
   return (
-    <Card className="sticky left-0 top-0 flex max-h-[100vh] min-h-screen w-full  flex-col justify-start gap-2 overflow-y-auto rounded-l-none rounded-r-sm bg-[#f0f0f0] px-1 dark:bg-background no-scrollbar">
+    <Card className="no-scrollbar sticky left-0 top-0 flex max-h-[100vh] min-h-screen  w-full flex-col justify-start gap-2 overflow-y-auto rounded-l-none rounded-r-sm bg-[#f0f0f0] px-1 dark:bg-background">
       <CardContent className="flex flex-col justify-start gap-4">
         {/* // cbe logo */}
         <div className="relative left-2 top-0 my-3 flex items-center justify-start gap-3">
@@ -81,30 +82,38 @@ function AsideComponent() {
 
         {/* // container of promts or list of CBE info */}
         <ScrollArea className=" h-96 w-full rounded-md bg-slate-100 dark:bg-background">
-          {!isSignedIn? (
-            <div className="">
-              {tags.map((tag) => (
-                <Button
-                  key={tag}
-                  variant="outline"
-                  size={"lg"}
-                  className="mb-2 w-full text-sm"
-                  onClick={() => router.push(`chat/${tag}`)}
-                >
-                  {tag}
-                </Button>
-              ))}
-            </div>
+          {isSignedIn ? (
+            <>
+              {!isAdmnPage && (
+                <div className="">
+                  {tags.map((tag) => (
+                    <Button
+                      key={tag}
+                      variant="outline"
+                      size={"lg"}
+                      className="mb-2 w-full text-sm"
+                      onClick={() => router.push(`chat/${tag}`)}
+                    >
+                      {tag}
+                    </Button>
+                  ))}
+                </div>
+              )}
+            </>
           ) : (
             <>
                 <p className="p-4 text-center italic">
                   cbe ai team is working to this feature
                 </p>
+
+              {/* Dynamic list of title */}
+              {/* <ListOfInfoTitleFetch/> */}
             </>
           )}
           {/* {isSignedIn && (
             <ListOfInfoTitle />
           )} */}
+
         </ScrollArea>
         <Link
           href={"/prompt"}

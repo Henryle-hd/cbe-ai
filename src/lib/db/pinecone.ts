@@ -13,3 +13,4 @@ const pinecone = new Pinecone({
 })
 
 export const cbeinfoIndex = pinecone.Index('cbeai');
+// export const cbepromptsIndex = pinecone.Index('prompts');
