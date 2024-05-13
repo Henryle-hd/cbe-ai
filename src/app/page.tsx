@@ -113,7 +113,7 @@ export default function Home() {
         <h1>Key Features</h1>
 
         <div className="grid grid-cols-1 gap-2 px-3 md:grid-cols-2 md:px-5 lg:grid-cols-3 lg:px-10">
-          {/* Card 01 */}
+          {/* cards  */}
           {features.map((feature) => (
             <Card
               className="bg-[#f0f0f0] shadow dark:bg-background"

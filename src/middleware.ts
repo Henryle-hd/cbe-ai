@@ -3,7 +3,7 @@ import { authMiddleware, redirectToSignIn } from "@clerk/nextjs";
 
 export default authMiddleware({
   // publicRoutes: ["((?!^/admn).*)"],
-  publicRoutes: ["/", "/chat"],
+  publicRoutes: ["/", "/chat","/chat/[^/]"],
 });
 
 export const config = {

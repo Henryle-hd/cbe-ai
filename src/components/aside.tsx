@@ -99,21 +99,44 @@ function AsideComponent() {
                   ))}
                 </div>
               )}
+
+              {isAdmnPage && (
+
+                // <div className="">
+                //   {tags.map((tag) => (
+                //     <Button
+                //       key={tag}
+                //       variant="outline"
+                //       size={"lg"}
+                //       className="mb-2 w-full text-sm"
+                //       onClick={() => router.push(`chat/${tag}`)}
+                //     >
+                //       {tag}
+                //     </Button>
+                //   ))}
+                // </div>
+                <p>Your admin let our to your feature</p>
+
+              )}
             </>
           ) : (
             <>
-                <p className="p-4 text-center italic">
-                  cbe ai team is working to this feature
-                </p>
+              <div className="">
+                {tags.map((tag) => (
+                  <Button
+                    key={tag}
+                    variant="outline"
+                    size={"lg"}
+                    className="mb-2 w-full text-sm"
+                    onClick={() => router.push(`chat/${tag}`)}
+                  >
+                    {tag}
+                  </Button>
+                ))}
+              </div>
 
-              {/* Dynamic list of title */}
-              {/* <ListOfInfoTitleFetch/> */}
             </>
           )}
-          {/* {isSignedIn && (
-            <ListOfInfoTitle />
-          )} */}
-
         </ScrollArea>
         <Link
           href={"/prompt"}
