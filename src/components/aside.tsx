@@ -115,7 +115,8 @@ function AsideComponent() {
                 //     </Button>
                 //   ))}
                 // </div>
-                <p>Your admin let our to your feature</p>
+                <p className="text-center">
+                  Sorry {user?.firstName} We are still working  to your features 😊</p>
 
               )}
             </>
