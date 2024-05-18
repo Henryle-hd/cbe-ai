@@ -8,8 +8,13 @@ import { Button } from './ui/button';
     }
 export default function ListOfCbeInfoTitle({info}:listOfTitleProps) {
 return (
-        <Button>
-            {info.title}
-        </Button>
+  <Button
+    key={info.id}
+    variant="outline"
+    size={"lg"}
+    className="mb-2 w-full text-sm"
+  >
+    {info.title}
+  </Button>
 );
 }
