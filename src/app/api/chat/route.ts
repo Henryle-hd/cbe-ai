@@ -8,7 +8,7 @@ import fetch from 'node-fetch';
 export async function POST(req: Request) {
     //getting system prompt from "/api/training"
     const systemPromptResponse = await fetch(
-      'http://localhost:3000/api/training',
+        'http://localhost:3000/api/training',
     );
     const systemPrompt = await systemPromptResponse.text();
     console.log(systemPrompt)
@@ -51,14 +51,13 @@ export async function POST(req: Request) {
 
     const systemMessage: ChatCompletionMessage = {
         role: "assistant",
-        content: systemPrompt,
-        // "Your CBE(College of Business Education) assistant chatbot named cbeai. You answer the user's (student, lectures, potential applicator, etc.) questions based on the existing information. Note: Your not allowed to provide information that is not relevant to CBE. Good luck! " +
-        // "The relevant CBE inforamation for this query are: \n" +
-        // relevantCbeInfo
-        //     .map(
-        //     (info) => `Title ${info.title}\n\nMain body:\n ${info.main_body}`,
-        //     )
-        //     .join("\n\n"),
+        content: systemPrompt+
+        "The relevant CBE inforamation for this query are: \n" +
+        relevantCbeInfo
+            .map(
+            (info) => `Title ${info.title}\n\nMain body:\n ${info.main_body}`,
+            )
+            .join("\n\n"),
     };
 
     /* sample of above code:

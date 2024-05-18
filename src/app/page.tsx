@@ -1,6 +1,6 @@
 "use client";
 
-import { BirdIcon, Bot, icons, Newspaper, Rabbit, Send } from "lucide-react";
+import { BirdIcon, Bot, GitCommitVertical, HelpingHand, icons, Newspaper, Rabbit, Send, ServerIcon } from "lucide-react";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import CurvedArrow from "@/app/assets/curveArrow.png";
@@ -39,25 +39,30 @@ export default function Home() {
     router.push(`/chat/${slug}`);
   };
 
+    const handleKeyDown:any = (e:any) => {
+      if (e.key === "Enter") {
+        handleRedirect();
+      }
+    };
 
-
-  const features = [
-    {
-      title: "Mission",
-      describe: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      icon: "BirdIcon",
-    },
-    {
-      title: "Vision",
-      describe: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      icon: "Rabbit",
-    },
-    {
-      title: "Tips",
-      describe: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      icon: "Newspaper",
-    },
-  ];
+const features = [
+  {
+    title: "Purpose",
+    describe: "Provides information about the College of Business Education.",
+    icon: "ChatIcon",
+  },
+  {
+    title: "Assistance",
+    describe:
+      "Answers queries on programs, admissions, faculty, facilities, and financial aid.",
+    icon: "HelpIcon",
+  },
+  {
+    title: "Service",
+    describe: "Centralized AI-powered chatbot offering accurate responses.",
+    icon: "ServiceIcon",
+  },
+];
   return (
     <main className="mt-10 flex min-h-screen flex-col items-center justify-center gap-5">
       {/* Bot icon  */}
@@ -93,6 +98,7 @@ export default function Home() {
             value={input}
             onChange={handleInputChange}
             ref={inputRef}
+            onKeyDown={handleKeyDown}
             className="h-full w-full rounded-none border-none bg-transparent focus-visible:ring-0"
             placeholder="Type a message..."
             type="text"
@@ -121,16 +127,16 @@ export default function Home() {
             >
               <CardContent className="flex flex-col items-center justify-center text-center">
                 <CardHeader>
-                  <div className="flex h-20 w-20 items-center justify-center rounded-full border">
-                    {feature.icon === "BirdIcon" ? (
-                      <BirdIcon size={50} strokeWidth={0.5} />
-                    ) : feature.icon === "Rabbit" ? (
-                      <Rabbit size={50} strokeWidth={0.5} />
+                  <div className="flex h-20 w-32 items-center justify-center rounded-full border">
+                    {feature.icon === "ChatIcon" ? (
+                      <Bot size={50} strokeWidth={0.5} />
+                    ) : feature.icon === "HelpIcon" ? (
+                      <HelpingHand size={50} strokeWidth={0.5} />
                     ) : (
-                      <Newspaper size={50} strokeWidth={0.5} />
+                      <GitCommitVertical size={50} strokeWidth={0.5} />
                     )}
                   </div>
-                  <CardTitle>{feature.title}</CardTitle>
+                  <CardTitle className="">{feature.title}</CardTitle>
                 </CardHeader>
                 <CardDescription>{feature.describe}</CardDescription>
               </CardContent>
