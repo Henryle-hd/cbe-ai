@@ -17,6 +17,7 @@ import LogOutBtn from "./log-out-btn";
 import prisma from "@/lib/db/prisma";
 import ListOfInfoTitle from "./listOfCbeInfoTitleFetch";
 import { useRouter } from "next/navigation";
+// import { useRouter as usePath} from "next/router";
 import ListOfInfoTitleFetch from "./listOfCbeInfoTitleFetch";
 
 const tags = Array.from({ length: 50 }).map(
@@ -40,7 +41,7 @@ const otherLinks = [
 
 function AsideComponent() {
 
-
+  // const routerPath = usePath();
   //variables used for dynamic side bar
 
   //che if its admin page / admin
@@ -228,5 +229,4 @@ function AsideComponent() {
     </Card>
   );
 }
-
 export default AsideComponent;
