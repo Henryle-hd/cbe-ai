@@ -257,9 +257,7 @@ function AsideComponent() {
             </AvatarFallback>
           </Avatar>
 
-          <div className="w-full text-xl font-bold text-cbeaiclr-1">
-            <TypeWriterTitle />
-          </div>
+          <div className="w-full text-xl font-bold text-cbeaiclr-1"> <TypeWriterTitle /> </div>
         </div>
 
         <Input

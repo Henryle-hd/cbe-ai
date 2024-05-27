@@ -5,6 +5,7 @@ import { Frown } from 'lucide-react'
 export default function Notfound() {
 return (
     <div className="flex h-screen flex-col items-center justify-center">
+        {/* gif image */}
         <Image alt="not-Avilable-image" src={NotFoundImage} className="" />
         {/* <Frown /> */}
         <h1 className="font-mono text-5xl font-bold">404</h1>
