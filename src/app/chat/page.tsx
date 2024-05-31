@@ -1,6 +1,5 @@
 "use client";
 
-
 import { useChat } from "ai/react"
 import ChatInput from "@/components/Chat-input";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -11,9 +10,10 @@ import { Button } from "@/components/ui/button";
 import { BirdIcon, Delete, Send } from "lucide-react";
 import { Message } from 'ai'
 import { cn } from "@/lib/utils";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import prisma from "@/lib/db/prisma";
 
 export default function Aichat() {
   const {

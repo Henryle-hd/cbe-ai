@@ -8,7 +8,7 @@ import { ScrollArea } from './ui/scroll-area';
 
 export default async function ListOfInfoTitleFetch() {
         const { userId } = auth();
-        if (!userId) throw new Error("UserId undefined");
+        // if (!userId) throw new Error("UserId undefined");
         const allInfos = await prisma.info.findMany();
     return (
       <ScrollArea className="h-96 w-full rounded-md bg-slate-100 dark:bg-background">
