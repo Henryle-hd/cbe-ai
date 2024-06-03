@@ -1,11 +1,22 @@
 import { Menu, Trash } from "lucide-react";
 import React from "react";
 import { Button } from "./ui/button";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
 import { ThemeToggle } from "./themeToggle";
 import TypeWriterTitle from "./typewriter";
 import { Separator } from "./ui/separator";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { UserButton } from "@clerk/nextjs";
+import AsideComponent from "./aside";
 
 export default function SmallScreen() {
   return (
@@ -28,14 +39,26 @@ export default function SmallScreen() {
         </div>
         <div className="flex items-center gap-2">
           <UserButton />
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
 
           {/* <Button variant={"destructive"}>
           <Trash />
         </Button> */}
-          <Button>
-            <Menu />
-          </Button>
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button size={'icon'}>
+                <Menu />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side={'left'}>
+              <AsideComponent />
+              <SheetFooter>
+                <SheetClose asChild>
+                  <Button type="submit">Save changes</Button>
+                </SheetClose>
+              </SheetFooter>
+            </SheetContent>
+          </Sheet>
         </div>
       </nav>
       <Separator />
