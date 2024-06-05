@@ -78,7 +78,7 @@ const ClientSideComponent = ({ children }: any) => {
                         key={tag}
                         variant="outline"
                         size={"lg"}
-                        className="mb-2 text-sm w-full text-left "
+                        className="mb-2 text-sm w-full text-left flex justify-start"
                         onClick={() => router.push(`chat/${tag}`)}
                         >
                         {tag}
@@ -100,7 +100,7 @@ const ClientSideComponent = ({ children }: any) => {
                     key={tag}
                     variant="outline"
                     size={"lg"}
-                    className="mb-2 text-sm w-full text-left"
+                    className="mb-2 text-sm w-full text-left flex justify-start"
                     onClick={() => router.push(`chat/${tag}`)}
                     >
                     {tag}
@@ -111,7 +111,7 @@ const ClientSideComponent = ({ children }: any) => {
             </ScrollArea>
             <Link
             href="/prompt"
-            className="flex items-center justify-center gap-2 text-[16px] text-gray-800"
+            className="flex items-center justify-center gap-2 text-[16px] text-gray-800 hover:text-cbeaiclr-1"
             >
             view more prompt <ArrowUpRight size={16} />
             </Link>
@@ -124,7 +124,7 @@ const ClientSideComponent = ({ children }: any) => {
                 <Link
                     key={link.title}
                     href={link.link}
-                    className="flex items-center justify-start gap-2 text-[12px] text-gray-800 dark:text-primary"
+                    className="flex items-center justify-start gap-2 text-[12px] text-gray-800 dark:text-primary hover:text-cbeaiclr-1"
                 >
                     <ArrowUpRight size={12} />
                     {link.title}

@@ -88,13 +88,15 @@ const [deleteInProgress, setDeleteInProgress] = useState(false);
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent
-        className="h-screen sm:h-auto"
+        className="max-w-screen h-screen sm:h-[95vh] sm:max-w-[60%] "
         onInteractOutside={(e) => {
           e.preventDefault();
         }}
       >
         <DialogHeader>
-          <DialogTitle>{infoToEdit?("Edit info 📚"):("Add info 📚")}</DialogTitle>
+          <DialogTitle className="text-center">
+            {infoToEdit ? "Edit info 📚" : "Add info 📚"}
+          </DialogTitle>
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
@@ -102,10 +104,14 @@ const [deleteInProgress, setDeleteInProgress] = useState(false);
               control={form.control}
               name="title"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="flex flex-col items-center justify-center gap-2">
                   <FormLabel>Title</FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Title.. " />
+                    <Input
+                      {...field}
+                      placeholder="Title.. "
+                      className="min-w-[300px] max-w-[300px]"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -115,12 +121,12 @@ const [deleteInProgress, setDeleteInProgress] = useState(false);
               control={form.control}
               name="main_body"
               render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Main body</FormLabel>
+                <FormItem className="flex flex-col items-center justify-center gap-2">
+                  <FormLabel></FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Enter information in detail"
-                      className="min-h-[50vh]"
+                      className="max-h-[60vh] min-h-[60vh]"
                       {...field}
                     />
                   </FormControl>
@@ -130,11 +136,11 @@ const [deleteInProgress, setDeleteInProgress] = useState(false);
             />
             <DialogFooter className="gap-1 sm:gap-0">
               {infoToEdit && (
-                <LoadingBtn 
-                loading={deleteInProgress} 
+                <LoadingBtn
+                  loading={deleteInProgress}
                   onClick={onDelete}
                   disabled={form.formState.isSubmitting}
-                  variant={'destructive'}
+                  variant={"destructive"}
                   type="button"
                 >
                   Delete
@@ -143,7 +149,8 @@ const [deleteInProgress, setDeleteInProgress] = useState(false);
               <LoadingBtn
                 type="submit"
                 loading={form.formState.isSubmitting}
-                disabled={deleteInProgress}>
+                disabled={deleteInProgress}
+              >
                 Submit
               </LoadingBtn>
             </DialogFooter>
