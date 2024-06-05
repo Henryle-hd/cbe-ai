@@ -25,27 +25,28 @@ const otherLinks = [
     },
 ];
 const tags = [
-  "How do I apply for admission?",
-  "What are the eligibility criteria for registration?",
-  "What documents are required for new student registration?",
-  "What is the process for online registration?",
-  "How is the tuition fee paid and what are the deadlines?",
-  "What is the module registration process for new and continuing students?",
-  "How do I transfer within the college or from other institutions?",
-  "What are the deadlines for registration?",
-  "What are the steps to complete the registration form?",
-  "Where can I find information about the tuition fee structure?",
-  "What should I do if I face difficulties during the application process?",
-  "How do I get an admission number?",
-  "What are the rules regarding fee payment and registration deadlines?",
-  "How can I get assistance with the online application?",
-  "What are the different academic programmes offered by the college?",
-  "What are the required qualifications for various programmes?",
-  "How do I verify my original certificates and testimonials?",
-  "What is the process for module approval and who is responsible?",
-  "What happens if I miss the registration deadlines?",
-  "What are the contact details for different campuses?",
+    "How to apply?",
+    "Eligibility criteria?",
+    "Required documents?",
+    "Online registration process?",
+    "Tuition fee payment?",
+    "Module registration?",
+    "Transfer process?",
+    "Registration deadlines?",
+    "Complete registration form?",
+    "Fee structure info?",
+    "Application issues?",
+    "Get admission number?",
+    "Fee payment rules?",
+    "Online application help?",
+    "Programmes offered?",
+    "Programme qualifications?",
+    "Verify certificates?",
+    "Module approval?",
+    "Missed deadlines?",
+    "Campus contacts?",
 ];
+
 
 // const tags = Array.from({ length: 50 }).map(
 //     (_, i, a) => `Most asked questions ${a.length - i}`,
@@ -77,7 +78,7 @@ const ClientSideComponent = ({ children }: any) => {
                         key={tag}
                         variant="outline"
                         size={"lg"}
-                        className="mb-2 text-sm text-left "
+                        className="mb-2 text-sm w-full text-left "
                         onClick={() => router.push(`chat/${tag}`)}
                         >
                         {tag}
@@ -99,7 +100,7 @@ const ClientSideComponent = ({ children }: any) => {
                     key={tag}
                     variant="outline"
                     size={"lg"}
-                    className="mb-2 text-sm text-left"
+                    className="mb-2 text-sm w-full text-left"
                     onClick={() => router.push(`chat/${tag}`)}
                     >
                     {tag}
