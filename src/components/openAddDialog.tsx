@@ -13,7 +13,7 @@ export default function OpenAddDialog() {
       >
         <CardContent className="flex h-[16vh] flex-col items-center justify-center gap-2 ">
           <Plus />
-          <h1>Add Categories</h1>
+          <h1>Add Information 📚</h1>
         </CardContent>
       </Card>
       <div className="flex flex-col items-center justify-center ">

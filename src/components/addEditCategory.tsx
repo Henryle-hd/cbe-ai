@@ -143,7 +143,7 @@ const [deleteInProgress, setDeleteInProgress] = useState(false);
                   variant={"destructive"}
                   type="button"
                 >
-                  Delete
+                  Unfamiliarize
                 </LoadingBtn>
               )}
               <LoadingBtn
@@ -151,7 +151,7 @@ const [deleteInProgress, setDeleteInProgress] = useState(false);
                 loading={form.formState.isSubmitting}
                 disabled={deleteInProgress}
               >
-                Submit
+                Familiarize
               </LoadingBtn>
             </DialogFooter>
           </form>
