@@ -16,7 +16,7 @@ export default async function ListOfInfoTitleFetch() {
           .slice()
           .reverse()
           .map((info) => (
-            <div key={info.id}>
+            <div key={info.id} className=''>
               <ListOfCbeInfoTitle info={info} />
             </div>
           ))}

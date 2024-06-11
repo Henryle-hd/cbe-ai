@@ -12,7 +12,7 @@ return (
     key={info.id}
     variant="outline"
     size={"lg"}
-    className="mb-2 w-full text-sm"
+    className="mb-2 flex w-full justify-start text-left text-sm"
   >
     {info.title}
   </Button>
