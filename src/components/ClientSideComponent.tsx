@@ -62,7 +62,7 @@ const ClientSideComponent = ({ children }: any) => {
     const { isSignedIn, user } = useUser();
     const router = useRouter();
     const isAdmnPage =
-        typeof window !== "undefined" && window.location.pathname.includes("/admn");
+        typeof window !== "undefined" && window.location.pathname.includes("/admin");
     // const isChatPage =
     //     typeof window !== "undefined" && window.location.pathname.includes("/chat");
 

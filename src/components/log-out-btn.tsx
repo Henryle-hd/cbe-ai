@@ -5,7 +5,7 @@ import { LogOut } from 'lucide-react';
 export default function LogOutBtn() {
     const isAdmnPage =
       typeof window !== "undefined" &&
-        window.location.pathname.includes("/admn");
+        window.location.pathname.includes("/admin");
   return (
     <div className="flex flex-col gap-1">
       {isAdmnPage && (
