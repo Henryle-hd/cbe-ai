@@ -50,13 +50,20 @@ export default function Aichat({ params }: { params: { slug: string } }) {
   // for passing params into a input and call the function automatic
   useEffect(() => {
     if (params.slug && inputRef.current) {
-      // removing the dash from the slug
+      // Removing the dash from the slug
       params.slug = params.slug.replace(/-/g, ' ');
-      // setting the value of the input
-      inputRef.current.value = params.slug
-      handleInputChange({ target: { value: params.slug } })
+      // Setting the value of the input
+      inputRef.current.value = params.slug;
+      handleInputChange({
+        // @ts-ignore
+        target: {
+          value: params.slug,
+          name: "input", // Assuming there's an input field with name="input"
+          type: "text",
+        },
+      });
     }
-  }, [params.slug])
+  }, [params.slug, handleInputChange, params])
 
 
   const previousMessageIsUser = messages[messages.length - 1]?.role === 'user';
