@@ -180,12 +180,12 @@ function Chatmessage({ message: { role, content } }: { message: Pick<Message, "r
       >
         <CardContent
           className="p-2 md:p-4 lg:p-4">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          {/* <ReactMarkdown remarkPlugins={[remarkGfm]}>
             {content}
-          </ReactMarkdown>
-          {/* <p>
+          </ReactMarkdown> */}
+           <p>
             {content}
-          </p> */}
+          </p> 
         </CardContent>
       </Card>
 
